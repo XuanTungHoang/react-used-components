@@ -1,0 +1,115 @@
+$size: 40px;
+$background-color: var(--bg-app);
+$search-bg-color: var(--bg-app);
+$icon-color: var(--grey-4);
+$transition: all 0.5s ease;
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: $background-color;
+}
+
+.search {
+    width: $size;
+    height: $size;
+    background-color: $search-bg-color;
+    position: relative;
+    overflow: hidden;
+    transition: $transition;
+    &:before {
+        content: "";
+        display: block;
+        width: 3px;
+        height: 100%;
+        position: relative;
+        background-color: $icon-color;
+        transition: $transition;
+    }
+    &.open {
+        width: 100%;
+        &:before {
+            height: calc($size - 10px);
+            margin-top: 0.25rem;
+            position: absolute;
+        }
+    }
+}
+
+.search-box {
+    width: 100%;
+    height: 100%;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+    padding: 0.75rem $size 0.75rem 24px;
+    font-size: 1rem;
+    &:focus {
+        outline: none;
+    }
+}
+
+.search-button {
+    width: $size;
+    height: $size;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+}
+
+.search-icon {
+    width: calc($size - 1.25rem);
+    height: calc($size - 1.25rem);
+    border-radius: $size;
+    border: 3px solid #3f3d66;
+    display: block;
+    position: relative;
+    transition: $transition;
+    margin-left: 0.1rem;
+    &:before {
+        content: "";
+        width: 3px;
+        height: 15px;
+        position: absolute;
+        right: -8px;
+        top: 0.75rem;
+        display: block;
+        background-color: $icon-color;
+        transform: rotate(-45deg);
+        transition: $transition;
+    }
+    &:after {
+        content: "";
+        width: 3px;
+        height: 15px;
+        position: absolute;
+        right: -12px;
+        top: $size;
+        display: block;
+        background-color: $icon-color;
+        transform: rotate(-45deg);
+        transition: $transition;
+    }
+    .open & {
+        margin: 0;
+        width: calc($size - 10px);
+        height: calc($size - 10px);
+        border-radius: calc($size - 10px);
+        &:before {
+            transform: rotate(52deg);
+            right: 45%;
+            top: 9px;
+            height: 12px;
+        }
+        &:after {
+            transform: rotate(-230deg);
+            right: 45%;
+            top: 3px;
+            height: 12px;
+        }
+    }
+}

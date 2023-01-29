@@ -1,0 +1,85 @@
+@import '../../../assets/styles/_mixin.scss';
+
+.LazyLoad {
+  height: 100%;
+  width: auto;
+
+  img {
+    // height: 100%;
+  }
+}
+
+.m-image {
+  width: 100%;
+
+  overflow: hidden;
+  &-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: inherit;
+    height: 100%;
+  }
+
+  & img {
+    width: inherit;
+    height: inherit;
+    // object-fit: cover;
+  }
+
+  &-56 {
+    width: rem(56);
+  }
+
+  &-1x1 {
+    @include aspect-ratio(1, 1);
+  }
+  &-2x1 {
+    @include aspect-ratio(2, 1);
+  }
+  &-2x3 {
+    @include aspect-ratio(2, 3);
+  }
+  &-3x2 {
+    @include aspect-ratio(3, 2);
+  }
+  &-5x3 {
+    @include aspect-ratio(5, 3);
+  }
+  &-7x5 {
+    @include aspect-ratio(7, 5);
+  }
+  &-8x5 {
+    @include aspect-ratio(8, 5);
+  }
+  &-9x4 {
+    @include aspect-ratio(9, 4);
+  }
+  &-10x7 {
+    @include aspect-ratio(10, 7);
+  }
+  &-4x5 {
+    @include aspect-ratio(4, 5);
+  }
+  &-13x8 {
+    @include aspect-ratio(13, 8);
+  }
+  &-15x8 {
+    @include aspect-ratio(15, 8);
+  }
+  &-16x9 {
+    @include aspect-ratio(16, 9);
+  }
+  &-17x7 {
+    @include aspect-ratio(17, 7);
+  }
+  &-17x8 {
+    @include aspect-ratio(17, 8);
+  }
+  &-17x12 {
+    @include aspect-ratio(17, 12);
+  }
+  &-19x12 {
+    @include aspect-ratio(19, 12);
+  }
+}

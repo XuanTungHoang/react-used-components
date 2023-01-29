@@ -1,0 +1,119 @@
+.input {
+  min-height: 3rem;
+  padding: 0 1.25rem;
+
+  &-fullWidth {
+    width: 100%;
+  }
+
+  &:read-only {
+    background-color: #d3d7db;
+    color: #667386;
+    font-weight: bold;
+  }
+
+  &-select-template {
+    &:read-only {
+      color: var(--text-color-base);
+      background-color: var(--bg-app);
+      font-weight: bold;
+    }
+  }
+  &-plusAndMinus-template {
+    text-align: center;
+    padding: 0 4rem;
+    border-radius: rem(6);
+  }
+}
+
+.access__control__input {
+  min-height: 37px;
+  border-radius: 20px;
+}
+
+.input-currency {
+  border-radius: 0.75rem;
+  min-height: 3rem;
+  &-fullWidth {
+    width: 100%;
+  }
+}
+
+.icon-after {
+  right: 1rem;
+  top: 50%;
+  font-weight: 700;
+  transform: translate(0, -50%);
+}
+
+.icon-before {
+  left: 1rem;
+  top: 50%;
+  font-weight: 700;
+  transform: translate(0, -50%);
+}
+
+.currency {
+  right: 1rem;
+  top: 50%;
+  font-weight: 700;
+  transform: translate(0, -25%);
+}
+
+.input-password {
+}
+
+.password {
+  right: 1rem;
+  top: 50%;
+  font-weight: 700;
+  transform: translate(0, -12%);
+}
+
+.otpContainer {
+  border: 1px solid var(--text-color-base);
+  border-radius: 0.75rem;
+  min-height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &-fullWidth {
+    width: 100%;
+  }
+  &:read-only {
+    background: none;
+    color: none;
+  }
+}
+
+.otpInput {
+  width: 2rem !important;
+  min-height: 2rem;
+  font-size: 1rem;
+  padding: 8px;
+  text-align: center;
+  border-radius: 4px;
+  background: transparent;
+  transition: 0.1s;
+
+  &::placeholder {
+    background-image: url(/src/assets/images/circle.png);
+    background-size: 10px;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-indent: 20px;
+  }
+
+  &:focus {
+    background-image: none !important;
+    text-indent: 0px;
+    outline: none;
+  }
+
+  &:read-only {
+    background-color: #d3d7db;
+    color: #667386;
+    font-weight: bold;
+  }
+}

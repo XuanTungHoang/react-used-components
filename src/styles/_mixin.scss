@@ -1,0 +1,175 @@
+@use 'sass:math';
+
+// responsive width
+$XS: 480px;
+$XS1: 576px;
+$SM: 768px;
+$SM3: 992px;
+$MD: 1024px;
+$L: 1180px;
+$L2: 1200px;
+$L3: 1300px;
+$L4: 1375px;
+$XL: 1380px;
+$XL1: 1400px;
+$XXL: 1441px;
+$XXXL: 1536px;
+$XXXL1: 1600px;
+$XXXXL: 1900px;
+$XXXXL1: 1920px;
+
+// responsive height
+$height-md: 640px;
+$height-l: 800px;
+$height-xl: 900px;
+$height-xl1: 1024px;
+$height-xxl: 1080px;
+$height-XXXl: 1200px;
+
+// media queries width
+@mixin responsive($canvas) {
+  @if $canvas==XS {
+    @media only screen and (min-width: $XS) {
+      @content;
+    }
+  } @else if $canvas==XS1 {
+    @media only screen and (min-width: $XS1) {
+      @content;
+    }
+  } @else if $canvas==SM {
+    @media only screen and (min-width: $SM) {
+      @content;
+    }
+  } @else if $canvas==SM3 {
+    @media only screen and (min-width: $SM3) {
+      @content;
+    }
+  } @else if $canvas==MD {
+    @media only screen and (min-width: $MD) {
+      @content;
+    }
+  } @else if $canvas==L {
+    @media only screen and (min-width: $L) {
+      @content;
+    }
+  } @else if $canvas==L2 {
+    @media only screen and (min-width: $L2) {
+      @content;
+    }
+  } @else if $canvas==L3 {
+    @media only screen and (min-width: $L3) {
+      @content;
+    }
+  } @else if $canvas==L4 {
+    @media only screen and (min-width: $L4) {
+      @content;
+    }
+  } @else if $canvas==XL {
+    @media only screen and (min-width: $XL) {
+      @content;
+    }
+  } @else if $canvas==XL1 {
+    @media only screen and (min-width: $XL1) {
+      @content;
+    }
+  } @else if $canvas==XXL {
+    @media only screen and (min-width: $XXL) {
+      @content;
+    }
+  } @else if $canvas==XXXL {
+    @media only screen and (min-width: $XXXL) {
+      @content;
+    }
+  } @else if $canvas==XXXL1 {
+    @media only screen and (min-width: $XXXL1) {
+      @content;
+    }
+  } @else if $canvas==XXXXL {
+    @media only screen and (min-width: $XXXXL) {
+      @content;
+    }
+  } @else if $canvas==XXXXL1 {
+    @media only screen and (min-width: $XXXXL1) {
+      @content;
+    }
+  }
+}
+
+// media queries height
+@mixin responsiveHeight($canvas) {
+  @if $canvas==height-md {
+    @media only screen and (min-height: $height-md) {
+      @content;
+    }
+  } @else if $canvas==height-l {
+    @media only screen and (min-height: $height-l) {
+      @content;
+    }
+  } @else if $canvas==height-xl {
+    @media only screen and (min-height: $height-xl) {
+      @content;
+    }
+  } @else if $canvas==height-xl1 {
+    @media only screen and (min-height: $height-xl1) {
+      @content;
+    }
+  } @else if $canvas==height-xxl {
+    @media only screen and (min-height: $height-xxl) {
+      @content;
+    }
+  } @else if $canvas==height-xxxl {
+    @media only screen and (max-height: $height-xxxl) {
+      @content;
+    }
+  }
+}
+
+@function rem($pixel) {
+  @if not $pixel {
+    @error 'Missing argument $pixel';
+  }
+
+  @return math.div($pixel, 16) + rem;
+}
+
+@mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin absoluteCenter {
+  position: absolute;
+  transform: translate(-50%, 0);
+  left: 50%;
+}
+
+@mixin textOverflow($value) {
+  word-break: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $value;
+}
+
+@mixin adjust-flex($justify-content: center, $align-item: center) {
+  display: flex;
+  justify-content: $justify-content;
+  align-items: $align-item;
+}
+
+@mixin font-base($font-size: rem(16), $line-height: rem(20)) {
+  font-size: $font-size;
+  line-height: $line-height;
+}
+
+@mixin aspect-ratio($width: 1, $height: 1) {
+  position: relative;
+
+  &::before {
+    content: '';
+    display: block;
+    padding-bottom: math.div($height, $width) * 100%;
+  }
+}
